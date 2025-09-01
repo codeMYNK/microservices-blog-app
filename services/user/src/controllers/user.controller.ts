@@ -6,7 +6,8 @@ import getBuffer from "../utils/dataUri.js";
 import { v2 as cloudinary } from "cloudinary";
 
 export const loginUser = TryCatch(async (req, res) => {
-  const { email, name, image } = req.body;
+  try {
+    const { email, name, image } = req.body;
 
   let user = await User.findOne({ email });
 
@@ -19,6 +20,9 @@ export const loginUser = TryCatch(async (req, res) => {
   });
 
   res.status(200).json({ message: "Login Successful", token, user });
+  } catch (error) {
+    res.status(500).json({ message: "Internal Server Error", error: error});
+  }
 });
 
 export const myProfile = TryCatch(async (req: AuthenticatedRequest, res) => {
