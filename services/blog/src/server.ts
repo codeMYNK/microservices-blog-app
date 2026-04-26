@@ -11,7 +11,15 @@ dotenv.config();
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:3000', 
+    'https://microservices-blog-app-frontend-z1c.vercel.app'
+  ],
+  credentials: true,      // if you're sending cookies or auth headers
+}));
+
+app.options('*', cors()); // Pre-flight requests ke liye
 
 const PORT = Number(process.env.PORT) || 8005;
 
