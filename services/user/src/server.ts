@@ -28,7 +28,10 @@ connectDB();
 
 app.use(express.json());
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: [
+    'http://localhost:3000', 
+    'https://microservices-blog-app-frontend-z1c.vercel.app'
+  ],
   credentials: true,      // if you're sending cookies or auth headers
 }));
 
