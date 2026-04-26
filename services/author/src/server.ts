@@ -29,7 +29,7 @@ app.use(cors());
 
 connectRabbitMQ();
 
-const PORT = process.env.PORT || 8001;
+const PORT = Number(process.env.PORT) || 8001;
 
 async function initDB(){
     try {
@@ -69,10 +69,14 @@ async function initDB(){
     }
 }
 
+app.get('/', (req, res) => {
+    res.send("Author Service is Live and Reachable! 🚀");
+});
+
 app.use("/api/v1", blogRouter);
 
 initDB().then(()=> {
-    app.listen(PORT, () => {
+    app.listen(PORT, "0.0.0.0", () => {
     console.log(`Author service is running on port ${PORT}`);
     });
 })
