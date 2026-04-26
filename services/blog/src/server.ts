@@ -19,7 +19,7 @@ app.use(cors({
   credentials: true,      // if you're sending cookies or auth headers
 }));
 
-app.options('*', cors()); // Pre-flight requests ke liye
+// app.options('*', cors()); // Pre-flight requests ke liye
 
 const PORT = Number(process.env.PORT) || 8005;
 

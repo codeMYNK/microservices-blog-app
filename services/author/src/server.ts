@@ -33,7 +33,7 @@ app.use(cors({
   credentials: true,      // if you're sending cookies or auth headers
 }));
 
-app.options('*', cors());
+// app.options('*', cors());
 
 connectRabbitMQ();
 
