@@ -44,7 +44,7 @@ Thumbs.db
 dump/
 
 # Docker-related
-**/.dockerignore
+# **/.dockerignore
 **/docker-compose.override.yml
 
 # Misc
