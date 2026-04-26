@@ -79,7 +79,7 @@ export const loginUser = TryCatch(async (req, res) => {
     });
 
     res.status(200).json({
-      message: "Login success",
+      message: "Login Success",
       token,
       user,
     });
